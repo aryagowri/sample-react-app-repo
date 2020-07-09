@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Login from './containers/Login/Login';
 import Layout from './containers/Layout/Layout';
@@ -19,6 +19,7 @@ function App() {
        <Route path='/careers/xyz/2' component={Education} />
        <Route path='/careers/xyz/3' component={WorkHistory} />
        <Route path='/careers/xyz/4' component={Submit} />
+       <Redirect path="/" />
     </Layout>
   );
 }
