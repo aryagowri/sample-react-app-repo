@@ -20,7 +20,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <React.StrictMode>
         <App />
       </React.StrictMode>
