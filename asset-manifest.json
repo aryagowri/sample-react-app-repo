@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/aryagowri/sample-react-app-repo/static/css/main.d901578a.chunk.css",
-    "main.js": "/aryagowri/sample-react-app-repo/static/js/main.75f112af.chunk.js",
-    "main.js.map": "/aryagowri/sample-react-app-repo/static/js/main.75f112af.chunk.js.map",
-    "runtime-main.js": "/aryagowri/sample-react-app-repo/static/js/runtime-main.c585f2d1.js",
-    "runtime-main.js.map": "/aryagowri/sample-react-app-repo/static/js/runtime-main.c585f2d1.js.map",
-    "static/js/2.b61f442e.chunk.js": "/aryagowri/sample-react-app-repo/static/js/2.b61f442e.chunk.js",
-    "static/js/2.b61f442e.chunk.js.map": "/aryagowri/sample-react-app-repo/static/js/2.b61f442e.chunk.js.map",
-    "index.html": "/aryagowri/sample-react-app-repo/index.html",
-    "precache-manifest.f03b56069caa5333fcc0f4b843b289b6.js": "/aryagowri/sample-react-app-repo/precache-manifest.f03b56069caa5333fcc0f4b843b289b6.js",
-    "service-worker.js": "/aryagowri/sample-react-app-repo/service-worker.js",
-    "static/css/main.d901578a.chunk.css.map": "/aryagowri/sample-react-app-repo/static/css/main.d901578a.chunk.css.map",
-    "static/js/2.b61f442e.chunk.js.LICENSE.txt": "/aryagowri/sample-react-app-repo/static/js/2.b61f442e.chunk.js.LICENSE.txt",
-    "static/media/carousel-img-1.jpg": "/aryagowri/sample-react-app-repo/static/media/carousel-img-1.3bf05247.jpg",
-    "static/media/carousel-img-2.jpg": "/aryagowri/sample-react-app-repo/static/media/carousel-img-2.02a22437.jpg",
-    "static/media/carousel-img-3.jpg": "/aryagowri/sample-react-app-repo/static/media/carousel-img-3.f08f80d0.jpg"
+    "main.css": "/sample-react-app-repo/static/css/main.d901578a.chunk.css",
+    "main.js": "/sample-react-app-repo/static/js/main.ad53ed53.chunk.js",
+    "main.js.map": "/sample-react-app-repo/static/js/main.ad53ed53.chunk.js.map",
+    "runtime-main.js": "/sample-react-app-repo/static/js/runtime-main.dbe706e1.js",
+    "runtime-main.js.map": "/sample-react-app-repo/static/js/runtime-main.dbe706e1.js.map",
+    "static/js/2.b61f442e.chunk.js": "/sample-react-app-repo/static/js/2.b61f442e.chunk.js",
+    "static/js/2.b61f442e.chunk.js.map": "/sample-react-app-repo/static/js/2.b61f442e.chunk.js.map",
+    "index.html": "/sample-react-app-repo/index.html",
+    "precache-manifest.4a80495858a6e6e6311b5141e3e67ae1.js": "/sample-react-app-repo/precache-manifest.4a80495858a6e6e6311b5141e3e67ae1.js",
+    "service-worker.js": "/sample-react-app-repo/service-worker.js",
+    "static/css/main.d901578a.chunk.css.map": "/sample-react-app-repo/static/css/main.d901578a.chunk.css.map",
+    "static/js/2.b61f442e.chunk.js.LICENSE.txt": "/sample-react-app-repo/static/js/2.b61f442e.chunk.js.LICENSE.txt",
+    "static/media/carousel-img-1.jpg": "/sample-react-app-repo/static/media/carousel-img-1.3bf05247.jpg",
+    "static/media/carousel-img-2.jpg": "/sample-react-app-repo/static/media/carousel-img-2.02a22437.jpg",
+    "static/media/carousel-img-3.jpg": "/sample-react-app-repo/static/media/carousel-img-3.f08f80d0.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c585f2d1.js",
+    "static/js/runtime-main.dbe706e1.js",
     "static/js/2.b61f442e.chunk.js",
     "static/css/main.d901578a.chunk.css",
-    "static/js/main.75f112af.chunk.js"
+    "static/js/main.ad53ed53.chunk.js"
   ]
 }
