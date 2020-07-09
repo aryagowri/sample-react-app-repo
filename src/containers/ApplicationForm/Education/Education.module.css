@@ -1,0 +1,55 @@
+.ProgressContainer > :first-child {
+    display: none;
+}
+.Heading {
+    color: #3fb0bb;
+    text-align: center;
+    padding: 5px;
+}
+.ButtonContainer {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    margin-left: 15px;
+    justify-content: space-between;
+}
+.TableContainer {
+    height: 100px;
+    width: 80%;
+    border: 1px solid #3fb0bb;
+    margin: 10px auto;
+    overflow: scroll;
+}
+.AddBtnContainer {
+    width: 80%;
+    margin: auto;
+}
+.CloseButton {
+    margin-left: 80%;
+}
+@media (min-width: 330px) {
+    .ButtonContainer {
+        margin: auto;
+    }
+}
+@media(min-width: 400px) {
+    .CloseButton {
+        margin-left: 88%;
+    }
+}
+@media (min-width: 600px) {
+    .ProgressContainer > :first-child {
+        display: flex;
+    }
+    .ProgressContainer > :last-child {
+        display: none;
+    }
+    .ButtonContainer, .AddBtnContainer, .TableContainer {
+        width: 50%;
+    }
+}
+@media(min-width: 800px) {
+    .CloseButton {
+        margin-left: 93%;
+    }
+}

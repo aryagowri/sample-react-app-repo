@@ -1,0 +1,15 @@
+.Button {
+    color: #3fb0bb;
+    background-color: #2a2954; /*rgba(165, 167, 169, 0.56);/*#a5a7a98f*/
+    border: none;
+    border-radius: 12px;
+    padding: 5px 10px;
+    height: fit-content;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+}
+.Button:disabled {
+    cursor: not-allowed;
+    background-color: rgba(165, 167, 169, 0.56);
+}

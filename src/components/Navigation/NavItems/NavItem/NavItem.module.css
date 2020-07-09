@@ -1,0 +1,15 @@
+.NavItem {
+    box-sizing: border-box;
+}
+.NavItem a{
+    color: #3fb0bb;
+    font-weight: 500;
+    text-decoration: none;
+}
+.NavItem a:hover,
+.NavItem a:active {
+    padding-bottom: 1px;
+    border-bottom: 1px solid #a5a7a98f;
+    font-size: 17px;
+    border-bottom: 1px solid #a5a7a98f;
+}

@@ -1,0 +1,64 @@
+.Progress {
+    padding: 0;
+    list-style-type: none;
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0 -1px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Progress li {
+    float: left;
+    padding: 10px 20px 8px 25px;
+    background: #6c757dd1;
+    color: #fff;
+    position: relative;
+    border-top: 1px solid #6c757df5;
+    border-bottom: 1px solid#6c757df5;
+    width: 20%;
+    margin: 0 1px;
+    height: 48px;
+}
+
+.Progress li:before {
+    content: '';
+    border-left: 24px solid #fff;
+    border-top: 24px solid transparent;
+    border-bottom: 24px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+.Progress li:first-of-type:before {
+    border: 0;
+}
+.Progress li:after {
+    content: '';
+    border-left: 24px solid #6c757dd1;
+    border-top: 24px solid transparent;
+    border-bottom: 24px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 20;
+}
+.Progress li:last-of-type:after {
+    border: 0;
+}
+.Progress li.Active {
+    background: #3fb0bb;
+}
+
+.Progress li.Active:after {
+    border-left-color: #3fb0bb;
+}
+.Progress li.Completed {
+    background: #2a2954;
+}
+
+.Progress li.Completed:after {
+    border-left-color: #2a2954;
+}

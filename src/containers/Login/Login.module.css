@@ -1,0 +1,45 @@
+.LoginHeading {
+    color: #3fb0bb;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.ButtonContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: auto;
+}
+.SignUpButton {
+    background-color: none;
+    border: none;
+    font-weight: bold;
+    color: #3fb0bb;
+}
+.SignUpButton:hover,
+.SignUpButton:focus {
+    border-bottom: 1px solid #3fb0bb;
+    outline: none;
+}
+.SignupPara {
+    text-align: center;
+    margin: 10px;
+}
+.CloseButton {
+    margin-left: 80%;
+}
+@media(min-width: 400px) {
+    .CloseButton {
+        margin-left: 88%;
+    }
+}
+@media (min-width: 600px) {
+    .ButtonContainer {
+        width: 70%;
+    }
+}
+@media(min-width: 800px) {
+    .CloseButton {
+        margin-left: 93%;
+    }
+}

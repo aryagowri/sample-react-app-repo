@@ -1,0 +1,49 @@
+.Container {
+    width: 80%;
+    margin: auto;
+}
+.CloseButton {
+    margin-left: 80%;
+}
+.ProgressContainer > :first-child {
+    display: none;
+}
+.Heading {
+    color: #3fb0bb;
+    text-align: center;
+    padding: 5px;
+}
+.ButtonContainer {
+    /* width: 80%; */
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+.TableContainer {
+    height: 100px;
+    /* width: 100%; */
+    border: 1px solid #3fb0bb;
+    margin: 10px auto;
+    overflow: scroll;
+}
+@media(min-width: 400px) {
+    .CloseButton {
+        margin-left: 88%;
+    }
+}
+@media (min-width: 600px) {
+    .ProgressContainer > :first-child {
+        display: flex;
+    }
+    .ProgressContainer > :last-child {
+        display: none;
+    }
+    .SubmitContainer {
+        width: 50%;
+    }
+}
+@media(min-width: 800px) {
+    .CloseButton {
+        margin-left: 93%;
+    }
+}

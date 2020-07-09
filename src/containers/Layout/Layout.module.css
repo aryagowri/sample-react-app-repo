@@ -1,0 +1,9 @@
+.MainContent {
+    margin-top: 51px;
+    min-height: calc(100vh - 155px);
+}
+@media (min-width: 600px) {
+    .MainContent {
+        margin-top: 91px;
+    }
+}
