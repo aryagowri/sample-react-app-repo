@@ -19,7 +19,7 @@ function App() {
        <Route path='/careers/xyz/2' component={Education} />
        <Route path='/careers/xyz/3' component={WorkHistory} />
        <Route path='/careers/xyz/4' component={Submit} />
-       <Redirect to="/" exact />
+       <Redirect to="/"/>
     </Layout>
   );
 }
