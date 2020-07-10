@@ -12,6 +12,7 @@ import Submit from './containers/ApplicationForm/Submit/Submit';
 function App() {
   return (
     <Layout>
+      {console.log('process.env.PUBLIC_URL', process.env.PUBLIC_URL)}
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/login' exact component={Login} />
