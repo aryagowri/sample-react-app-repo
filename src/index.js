@@ -20,7 +20,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL + '/sample-react-app-repo/'}>
       <React.StrictMode>
         <App />
       </React.StrictMode>
