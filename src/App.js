@@ -25,15 +25,16 @@ function App(props) {
     <Layout>
       <Switch>
         <Route path='/' exact component={Home} />
-        <Route path='/login' exact component={Login} />
+        { !props.isAuth && <Route path='/login' exact component={Login} /> }
         <Route path='/careers' exact component={Careers} />
         <Route path='/contactus' exact component={ContactUs} />
         <Route path='/news' exact component={News} />
         <Route path='/careers/xyz/1' component={Personal} />
-        <Route path='/careers/xyz/2' component={Education} />
-        <Route path='/careers/xyz/3' component={WorkHistory} />
-        <Route path='/careers/xyz/4' component={Submit} />
-        <Route path='/submitsuccess' component={SubmitSuccess} />
+        {/*Authenticated users can access Education step of form, only if personal step of form is completed */}
+        { props.isAuth && props.isPersonalValid && <Route path='/careers/xyz/2' component={Education} /> }
+        { props.isAuth && props.isEducationValid && <Route path='/careers/xyz/3' component={WorkHistory} /> }
+        { props.isAuth && props.isEducationValid && <Route path='/careers/xyz/4' component={Submit} /> }
+        { props.isSubmitted && <Route path='/submitsuccess' component={SubmitSuccess} /> }
         <Redirect to="/" exact/>
       </Switch>
     </Layout>
@@ -41,7 +42,11 @@ function App(props) {
 }
 const mapStateToProps = state => {
   return {
-
+    isAuth: state.login.token !== null,
+    isPersonalValid: state.appForm.isFormValid.personal,
+    isEducationValid: state.appForm.isFormValid.education,
+    isWorkValid: state.appForm.isFormValid.work,
+    isSubmitted: state.appForm.submitted
   }
 }
 const mapDispatchToProps = dispatch => {
