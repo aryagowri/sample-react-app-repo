@@ -36,7 +36,7 @@ const Submit = props => {
     }
     return (
         <Modal show='true' backdropClickHandler={closeBtnHandler}>
-            { props.submitted ? <Redirect to='/' /> : null }
+            { props.submitted ? <Redirect to='/submitsuccess' /> : null }
             <div className={styles.CloseButton}><Button clickHandler={closeBtnHandler}>&times;</Button></div>
             <h4 className={styles.Heading}>Application Form</h4>
             <div className={styles.ProgressContainer}>

@@ -11,6 +11,7 @@ import WorkHistory from './containers/ApplicationForm/WorkHistory/WorkHistory';
 import Submit from './components/ApplicationForm/Submit/Submit';
 import ContactUs from './components/ContactUs/ContactUs';
 import News from './components/News/News';
+import SubmitSuccess from './components/ApplicationForm/Submit/SubmitSuccess/SubmitSuccess';
 import * as actions from './store/actions';
 
 function App(props) {
@@ -32,6 +33,7 @@ function App(props) {
         <Route path='/careers/xyz/2' component={Education} />
         <Route path='/careers/xyz/3' component={WorkHistory} />
         <Route path='/careers/xyz/4' component={Submit} />
+        <Route path='/submitsuccess' component={SubmitSuccess} />
         <Redirect to="/" exact/>
       </Switch>
     </Layout>
