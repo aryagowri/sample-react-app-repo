@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import FormControl from '../../components/UI/FormControl/FormControl';
@@ -42,25 +42,29 @@ const Login = props => {
     });
     const [isLogin, setIsLogin] = useState(true);
     const [isFormValid, setIsFormValid] = useState(false);
-
+    
+    useEffect(() => {
+        let isValid = true;
+        for(let key in formControls) {
+            console.log('isValid', isValid, 'errMsg', formControls[key].errMsg, 'touched', formControls[key].touched)
+            isValid = isValid && formControls[key].errMsg === '' && formControls[key].touched;
+        }
+        setIsFormValid(isValid);
+    }, [formControls]);
     const changeHandler = event => {
         const {name, value} = event.target;
         const errorMsg = checkValidity(value, formControls[name].validation);
+        
         setFormControls({
             ...formControls,
             [name]: {
                 ...formControls[name],
                 value: event.target.value,
-                errMsg: errorMsg
+                errMsg: errorMsg,
+                touched: true
             }
         });
-        let isValid = true;
-        for(let key in formControls) {
-            isValid = isValid && formControls[key].errMsg === '' && formControls[key].touched
-        }
-        if(isValid) {
-            setIsFormValid(true);
-        }
+        
     }
     const loginSwitchBtnHandler = () => {
         setIsLogin(prevState => !prevState);
@@ -70,18 +74,21 @@ const Login = props => {
         event.preventDefault();
         props.history.goBack();
     }
-    const resetHandler = () => {
+    const resetHandler = event => {
+        event.preventDefault();
         setFormControls({
             ...formControls,
             email: {
                 ...formControls.email,
                 value: '',
-                errMsg: ''
+                errMsg: '',
+                touched: false
             },
             password: {
                 ...formControls.password,
                 value: '',
-                errMsg: ''
+                errMsg: '',
+                touched: false
             }
         })
     }

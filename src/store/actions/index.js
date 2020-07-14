@@ -1,6 +1,7 @@
 export {
     loginSubmit,
-    logout
+    logout,
+    checkForAutoLogin
 } from './login';
 export {
     formSubmit,

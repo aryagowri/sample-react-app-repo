@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../../components/UI/Modal/Modal';
 import Progress from '../../../components/UI/Progress/Progress';
@@ -10,8 +10,14 @@ import { checkValidity } from '../../../Utility/utility';
 import styles from './Education.module.css';
 
 const Education = props => {
-    // const [items, setItems] = useState([]);
-
+    const [maxRecords, setMaxRecords] = useState(false);//to set maximum number of rows that can be added in education tab(application form)
+    useEffect(()=> {
+        let isValid = true;
+        for(let key in  props.formData){
+            isValid = isValid && props.formData[key].errorMsg === '' && props.formData[key].touched;
+        }
+        props.isFormValid('education', isValid);//will be set to true if all fields are valid
+    })
     const backBtnHandler = event => {
         event.preventDefault();
         props.history.goBack();
@@ -24,11 +30,6 @@ const Education = props => {
         const {name, value} = event.target;
         const errorMsg = checkValidity(value, props.formData[name].validation);
         props.onInputChange(name, value, errorMsg, 'education');
-        let isValid = true;
-        for(let key in  props.formData){
-            isValid = isValid && props.formData[key].errorMsg === '' && props.formData[key].touched;
-        }
-        props.isFormValid('education', isValid); 
     }
     const resetHandler = event => {
         event.preventDefault();
@@ -41,11 +42,16 @@ const Education = props => {
                 yearOfCompletion: props.formData.yearOfCompletion.value,
                 institution: props.formData.institution.value
         }
-        props.onAddClick('education', eduData)
-        props.onResetClick('education');
+        if(props.tableData.length < 3) {
+            props.onAddClick('education', eduData);
+            props.onResetClick('education');
+        }
+        else {
+            setMaxRecords(true);
+        }
     }
     const deleteHandler = index => {
-        props.onTableDelete('education', index)
+        props.onTableDelete('education', index);
     }
     let formArray = [];
     let tableHeading =[];
@@ -65,6 +71,8 @@ const Education = props => {
             <div className={styles.CloseButton}><Button clickHandler={closeBtnHandler}>&times;</Button></div>
             <h4 className={styles.Heading}>Application Form</h4>
             <div className={styles.ProgressContainer}>
+                {/**first Progress is for devices with width > 600px **/
+                 /*** second Progress is for device width < 600px*/ }
                 <Progress stepNumber={1} stepNames={['Personal Details','Educational Details', 'Work History', 'Submit']} />
                 <Progress stepNumber={1} stepNames={['1','2', '3', '4']} />               
             </div>
@@ -77,6 +85,7 @@ const Education = props => {
                         errorMsg={element.desc.errorMsg} />
                 )}              
                 <div className={styles.AddBtnContainer}>
+                    {maxRecords ? <p className={styles.ErrorMsg}>You can't add more than 3 records.</p> : null}
                     <Button clickHandler={resetHandler}>Reset</Button>
                     <Button clickHandler={addHandler} disabled={!props.isValid}>Add</Button>
                 </div>
@@ -93,9 +102,9 @@ const Education = props => {
 }
 const mapStateToProps = state => {
     return {
-        formData: state.appForm.formDetails.education,
-        tableData: state.appForm.educationData,
-        isValid: state.appForm.isFormValid.education
+        formData: state.appForm.formDetails.education,//fetch education fields data from redux
+        tableData: state.appForm.educationData,//data added to table
+        isValid: state.appForm.isFormValid.education//to check if all fields are valid
     }
 }
 const mapDispatchToProps = dispatch => {

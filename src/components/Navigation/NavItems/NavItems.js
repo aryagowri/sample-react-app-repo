@@ -6,8 +6,8 @@ const NavItems = props => (
     <ul className={styles.NavItems}>
         <NavItem link="/">Home</NavItem>
         <NavItem link="/careers">Careers</NavItem>
-        <NavItem link="/">Contact Us</NavItem>
-        <NavItem link="/">News Releases</NavItem>
+        <NavItem link="/contactus">Contact Us</NavItem>
+        <NavItem link="/news">News Releases</NavItem>
     </ul>
 );
 export default NavItems;

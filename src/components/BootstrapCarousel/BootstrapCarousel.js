@@ -4,7 +4,7 @@ import styles from './BootstrapCarousel.module.css';
 import CarouselImage1 from '../../assets/images/carousel-img-1.jpg';
 import CarouselImage2 from '../../assets/images/carousel-img-2.jpg';
 import CarouselImage3 from '../../assets/images/carousel-img-3.jpg';
-
+/***Carousel --Home Page*/
 const BootstrapCarousel = () => {
     return (
         <div className={["container-fluid", styles.CarouselWrapper].join(" ")}>

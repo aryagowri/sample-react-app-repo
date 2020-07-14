@@ -4,7 +4,6 @@ import styles from './FormControl.module.css';
 const FormControl = props => {
     let formControl = null;
     const classes = [styles.InputElement];
-    console.log('touched', props.touched)
     if(props.errorMsg !== '' && props.touched) {
         classes.push(styles.Invalid);
     }

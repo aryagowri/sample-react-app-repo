@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { checkValidity } from '../../../Utility/utility';
 import Modal from '../../../components/UI/Modal/Modal';
 import Progress from '../../../components/UI/Progress/Progress';
 import FormControl from '../../../components/UI/FormControl/FormControl';
@@ -7,10 +8,18 @@ import Button from '../../../components/UI/Button/Button';
 import Table from '../../../components/UI/Table/Table';
 import * as actions from '../../../store/actions';
 import styles from './WorkHistory.module.css';
-
+/***Work History tab in form */
 const WorkHistory = props => {
-
+    const [maxRecords, setMaxRecords] = useState(false);
+    useEffect(()=> {
+        let isValid = true;
+        for(let key in  props.formData){
+            isValid = isValid && props.formData[key].errorMsg === '' && props.formData[key].touched;
+        }
+        props.isFormValid('work', isValid);//set to true if all form fields are valid
+    })
     const backBtnHandler = event => {
+        console.log('back click handler')
         event.preventDefault();
         props.history.goBack();
     }
@@ -19,14 +28,18 @@ const WorkHistory = props => {
         props.history.replace('/careers');
     }
     const resetHandler = event => {
+        console.log('reset handler')
         event.preventDefault();
         props.onResetClick('work')
     }
+
     const changeHandler = event => {
         const {name, value} = event.target;
-        props.onInputChange(name, value, 'work');
+        const errorMsg = checkValidity(value, props.formData[name].validation);
+        props.onInputChange(name, value, errorMsg, 'work');
     }
     const nextClickHandler = event => {
+        console.log('next click handler')
         event.preventDefault();
         props.history.push('/careers/xyz/4')
     }
@@ -37,11 +50,16 @@ const WorkHistory = props => {
             position: props.formData.position.value,
             experience: props.formData.experience.value
         }
-        props.onAddClick('work', workData)
-        props.onResetClick('work');
+        if( props.tableData.length < 3) {
+            props.onAddClick('work', workData)
+            props.onResetClick('work');
+        }
+        else {
+            setMaxRecords(true);
+        }
     }
     const deleteHandler = index => {
-        props.onTableDelete(index);
+        props.onTableDelete('work', index);
     }
     let formArray = [];
     let tableHeading =[];
@@ -57,6 +75,8 @@ const WorkHistory = props => {
             <div className={styles.CloseButton}><Button clickHandler={closeBtnHandler}>&times;</Button></div>
             <h4 className={styles.Heading}>Application Form</h4>
             <div className={styles.ProgressContainer}>
+                {/**first Progress is for devices with width > 600px **/
+                 /*** second Progress is for device width < 600px*/ }
                 <Progress stepNumber={2} stepNames={['Personal Details','Educational Details', 'Work History', 'Submit']} />
                 <Progress stepNumber={2} stepNames={['1','2', '3', '4']} />               
             </div>
@@ -65,18 +85,19 @@ const WorkHistory = props => {
                 {formArray.map(element =>
                     <FormControl attributes={element.desc.attribute} id={element.id} name={element.id} 
                         value={element.desc.value} controlType={element.controlType} onChange={changeHandler} 
-                        label={element.desc.label} key={element.id} />
+                        label={element.desc.label} key={element.id} errorMsg={element.desc.errorMsg} />
                 )}
                 <div className={styles.AddBtnContainer}>
+                    {maxRecords ? <p className={styles.ErrorMsg}>You can't add more than 3 records.</p> : null}
                     <Button clickHandler={resetHandler}>Reset</Button>
-                    <Button clickHandler={addHandler}>Add</Button>
+                    <Button clickHandler={addHandler} disabled={!props.isValid}>Add</Button>
                 </div>
                 <div className={styles.TableContainer}>
                     <Table closeBtn={true} headings={tableHeading} items={props.tableData} deleteHandler={deleteHandler}/>
                 </div>
                 <div className={styles.ButtonContainer}>
                         <Button clickHandler={backBtnHandler}>Back</Button>
-                        <Button>Next</Button>
+                        <Button disabled={!(props.tableData.length > 0)}>Next</Button>
                 </div>
             </form>
         </Modal>
@@ -84,16 +105,18 @@ const WorkHistory = props => {
 }
 const mapStateToProps = state => {
     return {
-        formData: state.appForm.formDetails.work,
-        tableData: state.appForm.workData
+        formData: state.appForm.formDetails.work,//work history related input fields data
+        tableData: state.appForm.workData,//data added to Table in work history tab
+        isValid: state.appForm.isFormValid.work //is true if all fields are valid
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onInputChange: (name, value, step) => dispatch(actions.inputValueChanged(name, value, step)),
+        onInputChange: (name, value, errorMsg, step) => dispatch(actions.inputValueChanged(name, value, errorMsg, step)),
         onResetClick: step => dispatch(actions.resetClicked(step)),
         onAddClick: (step, data) => dispatch(actions.addClicked(step, data)),
-        onTableDelete: (step, index) => dispatch(actions.tableDeleteClicked(step, index))
+        onTableDelete: (step, index) => dispatch(actions.tableDeleteClicked(step, index)),
+        isFormValid: (step, isValid) => dispatch(actions.isFormValid(step, isValid))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(WorkHistory);

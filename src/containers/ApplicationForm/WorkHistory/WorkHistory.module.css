@@ -26,6 +26,9 @@
     width: 80%;
     margin: auto;
 }
+.ErrorMsg {
+    color: red;
+}
 @media(min-width: 400px) {
     .CloseButton {
         margin-left: 88%;

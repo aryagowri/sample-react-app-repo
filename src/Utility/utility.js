@@ -1,3 +1,4 @@
+/* CheckValidity is to check field validation in form */
 export const checkValidity = (value, rules) => {
     let errMessage = '';
     if(!rules) {
@@ -16,7 +17,7 @@ export const checkValidity = (value, rules) => {
         }
     }
     if(rules.maxLength) {
-        if(value.length > rules.maxLength) {
+        if(value.length >= rules.maxLength) {
             errMessage = 'Value shouldn\'t exceeds a maximum length of ' + rules.maxLength;
             return errMessage;
         }

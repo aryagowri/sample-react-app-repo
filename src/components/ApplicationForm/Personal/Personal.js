@@ -1,27 +1,31 @@
-import React from 'react';
+/*** Personal Details step in Application Form***/
+
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import Modal from '../../../components/UI/Modal/Modal';
-import Progress from '../../../components/UI/Progress/Progress';
-import FormControl from '../../../components/UI/FormControl/FormControl';
-import Button from '../../../components/UI/Button/Button';
+import Modal from '../../UI/Modal/Modal';
+import Progress from '../../UI/Progress/Progress';
+import FormControl from '../../UI/FormControl/FormControl';
+import Button from '../../UI/Button/Button';
 import * as actions from '../../../store/actions';
 import { checkValidity } from '../../../Utility/utility';
 import styles from './Personal.module.css';
 
-const Personal = props => {    
+const Personal = props => { 
+
+    useEffect(()=> {
+        let isValid = true;
+        for(let key in  props.formData){
+            isValid = isValid && props.formData[key].errorMsg === '' && props.formData[key].touched;
+        }
+        props.isFormValid('personal', isValid);
+    })
     const closeBtnHandler = () => {
         props.history.goBack();
     }
     const changeHandler = event => {
         const {name, value} = event.target;
         const errorMsg = checkValidity(value, props.formData[name].validation);
-        props.onInputChange(name, value, errorMsg, 'personal');
-        let isValid = true;
-        for(let key in  props.formData){
-            isValid = isValid && props.formData[key].errorMsg === '' && props.formData[key].touched;
-        }
-        props.isFormValid('personal', isValid);
-        
+        props.onInputChange(name, value, errorMsg, 'personal');        
     }
     let formArray = [];
     for(let element in props.formData) {
@@ -43,6 +47,8 @@ const Personal = props => {
             <div className={styles.CloseButton}><Button clickHandler={closeBtnHandler}>&times;</Button></div>
             <h4 className={styles.Heading}>Application Form</h4>
             <div className={styles.ProgressContainer}>
+                {/**first Progress is for devices with width > 600px **/
+                 /*** second Progress is for device width < 600px*/ }
                 <Progress stepNumber={0} stepNames={['Personal Details','Educational Details', 'Work History', 'Submit']} />
                 <Progress stepNumber={0} stepNames={['1','2', '3', '4']} />               
             </div>

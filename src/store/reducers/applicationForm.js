@@ -178,8 +178,8 @@ const initialState = {
                 touched: false,
                 validation: {
                     required: true,
-                    minLength: 2,
-                    maxLength: 12,
+                    minLength: 1,
+                    maxLength: 3,
                     isNumeric: true
                 },
                 attribute: {
@@ -193,9 +193,9 @@ const initialState = {
     loading: false,
     submitted: false,
     error: null,
-    isFormValid: {'personal': false,
-                    'education': false,
-                    'work': false
+    isFormValid: {  personal: false,
+                    education: false,
+                    work: false
                 }
 };
 
@@ -233,10 +233,13 @@ const reducer = (state = initialState, action) => {
                     ...data,
                     [key]: {
                         ...formData[key],
-                        value: ''
+                        value: '',
+                        errorMsg: '',
+                        touched: false
                     }
                 }
             }
+            console.log(state);
             return {
                 ...state,
                 formDetails: {

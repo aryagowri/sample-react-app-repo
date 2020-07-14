@@ -1,10 +1,11 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import Modal from '../../../components/UI/Modal/Modal';
-import Progress from '../../../components/UI/Progress/Progress';
-import Button from '../../../components/UI/Button/Button';
+import Modal from '../../UI/Modal/Modal';
+import Progress from '../../UI/Progress/Progress';
+import Button from '../../UI/Button/Button';
 import * as actions from '../../../store/actions';
-import Table from '../../../components/UI/Table/Table';
+import Table from '../../UI/Table/Table';
 import styles from './Submit.module.css';
 
 const Submit = props => {
@@ -35,9 +36,12 @@ const Submit = props => {
     }
     return (
         <Modal show='true' backdropClickHandler={closeBtnHandler}>
+            { props.submitted ? <Redirect to='/' /> : null }
             <div className={styles.CloseButton}><Button clickHandler={closeBtnHandler}>&times;</Button></div>
             <h4 className={styles.Heading}>Application Form</h4>
             <div className={styles.ProgressContainer}>
+                {/**first Progress is for devices with width > 600px **/
+                 /*** second Progress is for device width < 600px*/ }
                 <Progress stepNumber={3} stepNames={['Personal Details','Educational Details', 'Work History', 'Submit']} />
                 <Progress stepNumber={3} stepNames={['1','2', '3', '4']} />               
             </div>
@@ -73,7 +77,8 @@ const mapStateToProps = state => {
         educationForm: state.appForm.educationData,
         workForm: state.appForm.workData,
         token: state.login.token,
-        email: state.login.email
+        email: state.login.email,
+        submitted: state.appForm.submitted
     }
 }
 const mapDispatchToProps = dispatch => {

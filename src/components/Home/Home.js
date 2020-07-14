@@ -1,11 +1,11 @@
 import React from 'react';
 import BootstrapCarousel from '../BootstrapCarousel/BootstrapCarousel';
 import styles from './Home.module.css';
-
+/***HOME PAGE */
 const Home = () => {
     return (
         <div className={styles.Home}>    
-            <BootstrapCarousel />
+            <BootstrapCarousel />{/* Carousel */}
                 <article className={styles.ParaContent}>
                     <h2>Lorem ipsum</h2>
                     <p>
@@ -24,7 +24,7 @@ const Home = () => {
                         tempor nisi velit at sapien.
                     </p>
                 </article>
-            <div className={styles.Aside}>
+            <div className={styles.Aside}>{/***Latest News tab */}
                 <h4>Latest News</h4>
                 <ul>
                     <li><a href="/careers">Recruitment for the post of XYZ</a></li>
