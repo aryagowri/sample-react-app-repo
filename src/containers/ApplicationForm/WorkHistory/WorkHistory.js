@@ -19,7 +19,6 @@ const WorkHistory = props => {
         props.isFormValid('work', isValid);//set to true if all form fields are valid
     })
     const backBtnHandler = event => {
-        console.log('back click handler')
         event.preventDefault();
         props.history.goBack();
     }
@@ -28,7 +27,6 @@ const WorkHistory = props => {
         props.history.replace('/careers');
     }
     const resetHandler = event => {
-        console.log('reset handler')
         event.preventDefault();
         props.onResetClick('work')
     }
@@ -39,7 +37,6 @@ const WorkHistory = props => {
         props.onInputChange(name, value, errorMsg, 'work');
     }
     const nextClickHandler = event => {
-        console.log('next click handler')
         event.preventDefault();
         props.history.push('/careers/xyz/4')
     }

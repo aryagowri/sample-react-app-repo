@@ -6,7 +6,6 @@ import styles from './SubmitSuccess.module.css';
 const SubmitSuccess = props => {
     const okBtnClickHandler = event => {
         props.history.replace('/');
-        console.log('clicked')
     }
 return (
     <Modal show={true}>

@@ -46,7 +46,6 @@ const Login = props => {
     useEffect(() => {
         let isValid = true;
         for(let key in formControls) {
-            console.log('isValid', isValid, 'errMsg', formControls[key].errMsg, 'touched', formControls[key].touched)
             isValid = isValid && formControls[key].errMsg === '' && formControls[key].touched;
         }
         setIsFormValid(isValid);
