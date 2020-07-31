@@ -44,8 +44,8 @@ const mapStateToProps = state => {
   return {
     isAuth: state.login.token !== null,
     isPersonalValid: state.appForm.isFormValid.personal,
-    isEducationValid: state.appForm.isFormValid.education,
-    isWorkValid: state.appForm.isFormValid.work,
+    isEducationValid: state.appForm.educationData.length > 0,
+    isWorkValid: state.appForm.workData.length > 0,
     isSubmitted: state.appForm.submitted
   }
 }

@@ -17,6 +17,11 @@ export const formSubmitFailed = (error) => {
         error: error
     }
 }
+export const clearAllInput = () => {
+    return {
+        type: actionTypes.CLEAR_ALL_INPUT
+    }
+}
 export const formSubmit = (token, data) => {
     return dispatch => {
         dispatch(formSubmitStart());
@@ -27,7 +32,6 @@ export const formSubmit = (token, data) => {
         .catch(error => {
             dispatch(formSubmitFailed(error));
         })
-
     }
 }
 export const inputValueChanged = (name, value, errorMsg, step) => {

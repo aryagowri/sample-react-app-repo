@@ -9,5 +9,6 @@ export {
     resetClicked,
     addClicked,
     tableDeleteClicked,
-    isFormValid
+    isFormValid,
+    clearAllInput
 } from './applicationForm';

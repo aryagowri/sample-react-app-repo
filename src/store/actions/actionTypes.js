@@ -14,3 +14,4 @@ export const ADD_CLICKED = 'ADD_CLICKED';
 export const TABLE_DELETE_ROW = 'TABLE_DELETE_ROW';
 
 export const FORM_VALID_CHECK = 'FORM_VALID_CHECK';
+export const CLEAR_ALL_INPUT = 'CLEAR_ALL_INPUT';

@@ -289,6 +289,40 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 error: action.error
             }
+        case actionTypes.CLEAR_ALL_INPUT:
+            let newFormDetails = {};
+            for(let formDetailsKey in state.formDetails) {
+                let keyData = {};
+                for(let key in state.formDetails[formDetailsKey]) {
+                    keyData = {
+                        ...keyData,
+                        [key]: {
+                            ...state.formDetails[formDetailsKey][key],
+                            value: '',
+                            errorMsg: '',
+                            touched: false
+                        }
+                    }
+                }
+                newFormDetails = {
+                    ...newFormDetails,
+                    [formDetailsKey]: keyData
+                }
+            }
+            return {
+                ...state,
+                formDetails: newFormDetails,
+                educationData: [],
+                workData: [],
+                submitted: false,
+                isFormValid: {  
+                                ...state.isFormValid,
+                                personal: false,
+                                education: false,
+                                work: false
+                            }
+
+            }
         default:
             return state;
     }
