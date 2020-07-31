@@ -33,7 +33,7 @@ function App(props) {
         {/*Authenticated users can access Education step of form, only if personal step of form is completed */}
         { props.isAuth && props.isPersonalValid && <Route path='/careers/xyz/2' component={Education} /> }
         { props.isAuth && props.isEducationValid && <Route path='/careers/xyz/3' component={WorkHistory} /> }
-        { props.isAuth && props.isEducationValid && <Route path='/careers/xyz/4' component={Submit} /> }
+        { props.isAuth && props.isWorkValid && <Route path='/careers/xyz/4' component={Submit} /> }
         { props.isSubmitted && <Route path='/submitsuccess' component={SubmitSuccess} /> }
         <Redirect to="/" exact/>
       </Switch>
