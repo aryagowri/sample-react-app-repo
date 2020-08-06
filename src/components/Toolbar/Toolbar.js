@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from '../Logo/Logo';
 import NavItems from '../Navigation/NavItems/NavItems';
@@ -16,7 +16,7 @@ const Toolbar = props => {
         <header className={styles.Toolbar}>
             <div className={`${styles.LogoContainer} ${styles.Size}`}>
                 <DrawerToggle clickHandler={props.drawerClicked} />
-                <Logo />
+                <NavLink to='/'><Logo /></NavLink>
                 {props.isAuthUser ? <Button clickHandler={props.onLogout}>Logout</Button> 
                     : <Button clickHandler={LoginClickHandler}>Login</Button> }
             </div>
