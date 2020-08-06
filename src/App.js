@@ -9,8 +9,8 @@ import Personal from './components/ApplicationForm/Personal/Personal';
 import Education from './containers/ApplicationForm/Education/Education';
 import WorkHistory from './containers/ApplicationForm/WorkHistory/WorkHistory';
 import Submit from './components/ApplicationForm/Submit/Submit';
-import ContactUs from './components/ContactUs/ContactUs';
-import News from './components/News/News';
+// import ContactUs from './components/ContactUs/ContactUs'; --will implement later
+// import News from './components/News/News'; --will implement later
 import SubmitSuccess from './components/ApplicationForm/Submit/SubmitSuccess/SubmitSuccess';
 import * as actions from './store/actions';
 
@@ -27,8 +27,8 @@ function App(props) {
         <Route path='/' exact component={Home} />
         { !props.isAuth && <Route path='/login' exact component={Login} /> }
         <Route path='/careers' exact component={Careers} />
-        <Route path='/contactus' exact component={ContactUs} />
-        <Route path='/news' exact component={News} />
+        {/* <Route path='/contactus' exact component={ContactUs} />
+        <Route path='/news' exact component={News} /> */}
         <Route path='/careers/xyz/1' component={Personal} />
         {/*Authenticated users can access Education step of form, only if personal step of form is completed */}
         { props.isAuth && props.isPersonalValid && <Route path='/careers/xyz/2' component={Education} /> }

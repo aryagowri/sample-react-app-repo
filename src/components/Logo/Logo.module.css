@@ -1,7 +1,13 @@
 .Logo {
     box-sizing: border-box;
     height: 100%;
+    padding-left: 30px;
 }
 .Logo img {
     height: 100%;
+}
+@media (min-width: 600px) {
+    .Logo {
+        padding-left: 0;
+    }
 }
