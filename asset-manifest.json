@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/sample-react-app-repo/static/css/main.ffe8ab53.chunk.css",
-    "main.js": "/sample-react-app-repo/static/js/main.87277f0b.chunk.js",
-    "main.js.map": "/sample-react-app-repo/static/js/main.87277f0b.chunk.js.map",
+    "main.js": "/sample-react-app-repo/static/js/main.ec686589.chunk.js",
+    "main.js.map": "/sample-react-app-repo/static/js/main.ec686589.chunk.js.map",
     "runtime-main.js": "/sample-react-app-repo/static/js/runtime-main.dbe706e1.js",
     "runtime-main.js.map": "/sample-react-app-repo/static/js/runtime-main.dbe706e1.js.map",
-    "static/js/2.3a85cd83.chunk.js": "/sample-react-app-repo/static/js/2.3a85cd83.chunk.js",
-    "static/js/2.3a85cd83.chunk.js.map": "/sample-react-app-repo/static/js/2.3a85cd83.chunk.js.map",
+    "static/js/2.2fbbdca8.chunk.js": "/sample-react-app-repo/static/js/2.2fbbdca8.chunk.js",
+    "static/js/2.2fbbdca8.chunk.js.map": "/sample-react-app-repo/static/js/2.2fbbdca8.chunk.js.map",
     "index.html": "/sample-react-app-repo/index.html",
-    "precache-manifest.cb6d00392c6d494aa6fbac62c1fcc710.js": "/sample-react-app-repo/precache-manifest.cb6d00392c6d494aa6fbac62c1fcc710.js",
+    "precache-manifest.db89c28248debf0ede577e92ceca7ae3.js": "/sample-react-app-repo/precache-manifest.db89c28248debf0ede577e92ceca7ae3.js",
     "service-worker.js": "/sample-react-app-repo/service-worker.js",
     "static/css/main.ffe8ab53.chunk.css.map": "/sample-react-app-repo/static/css/main.ffe8ab53.chunk.css.map",
-    "static/js/2.3a85cd83.chunk.js.LICENSE.txt": "/sample-react-app-repo/static/js/2.3a85cd83.chunk.js.LICENSE.txt",
+    "static/js/2.2fbbdca8.chunk.js.LICENSE.txt": "/sample-react-app-repo/static/js/2.2fbbdca8.chunk.js.LICENSE.txt",
     "static/media/carousel-img-1.jpg": "/sample-react-app-repo/static/media/carousel-img-1.3bf05247.jpg",
     "static/media/carousel-img-2.jpg": "/sample-react-app-repo/static/media/carousel-img-2.02a22437.jpg",
     "static/media/carousel-img-3.jpg": "/sample-react-app-repo/static/media/carousel-img-3.f08f80d0.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.dbe706e1.js",
-    "static/js/2.3a85cd83.chunk.js",
+    "static/js/2.2fbbdca8.chunk.js",
     "static/css/main.ffe8ab53.chunk.css",
-    "static/js/main.87277f0b.chunk.js"
+    "static/js/main.ec686589.chunk.js"
   ]
 }
